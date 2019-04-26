@@ -129,3 +129,5 @@ venv.bak/
 .mypy_cache/
 
 workspace.xml
+
+package-lock.json
