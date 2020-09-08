@@ -1,30 +1,27 @@
-/* 
+/*
  * This file is part of Flower.
- * 
+ *
  * Copyright ©2018 Nicolò Mazzucato
  * Copyright ©2018 Antonio Groza
  * Copyright ©2018 Brunello Simone
  * Copyright ©2018 Alessio Marotta
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
- * 
+ *
  * Flower is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
- * 
+ *
  * Flower is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License
  * along with Flower.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-// @flow
-
 import React from "react";
-import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Modal from "@material-ui/core/Modal";
@@ -41,30 +38,30 @@ function getModalStyle() {
   return {
     top: `${top}%`,
     left: `${left}%`,
-    transform: `translate(-${top}%, -${left}%)`
+    transform: `translate(-${top}%, -${left}%)`,
   };
 }
 
-const styles = theme => ({
+const styles = (theme) => ({
   paper: {
-    position: "absolute",
+    position: "absolute" as const,
     backgroundColor: theme.palette.background.paper,
     width: 900,
     height: 700,
-    overflow: "auto",
-    whiteSpace: "pre-line",
-    wordWrap: "break-word",
+    overflow: "auto" as const,
+    whiteSpace: "pre-line" as const,
+    wordWrap: "break-word" as const,
     boxShadow: theme.shadows[5],
-    padding: theme.spacing.unit * 4
-  }
+    padding: theme.spacing.unit * 4,
+  },
 });
 
 class CopyModal extends React.Component<{
-  classes: *,
-  isOpen: boolean,
-  onClose: () => *,
-  text_to_copy: string,
-  onCopy: string => void
+  classes: any;
+  isOpen: boolean;
+  onClose: () => any;
+  text_to_copy: string;
+  onCopy: (a: string) => void;
 }> {
   render() {
     const { classes } = this.props;
@@ -94,11 +91,7 @@ class CopyModal extends React.Component<{
   }
 }
 
-CopyModal.propTypes = {
-  classes: PropTypes.object.isRequired
-};
-
 // We need an intermediary variable for handling the recursive nesting.
-const SimpleModalWrapped = withStyles(styles)(CopyModal);
+const SimpleModalWrapped: any = withStyles(styles)(CopyModal);
 
 export default SimpleModalWrapped;

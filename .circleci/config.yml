@@ -1,10 +1,10 @@
 version: 2.1
 jobs:
   build:
-    docker: 
-      - image: circleci/python:3.8 
+    docker:
+      - image: circleci/python:3.8
     steps:
-      - checkout 
+      - checkout
       - setup_remote_docker
       - run: docker-compose up -d
       - run: sleep 60

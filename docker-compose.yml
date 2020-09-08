@@ -1,6 +1,5 @@
 version: "3.2"
 services:
-
   mongo:
     image: mongo:4
     networks:

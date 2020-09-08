@@ -8,17 +8,15 @@
     "arrow-keys-react": "^1.0.6",
     "dompurify": "^2.0.7",
     "escape-html": "^1.0.3",
-    "flow-bin": "^0.74.0",
     "hexdump-nodejs": "^0.1.0",
     "lodash": "^4.17.19",
-    "material-ui": "^1.0.0-beta.47",
     "material-ui-search-bar": "^1.0.0-beta.4",
     "moment": "^2.22.2",
-    "react": "^16.4.1",
+    "react": "^16.13.1",
     "react-copy-to-clipboard": "^5.0.1",
-    "react-dom": "^16.4.2",
+    "react-dom": "^16.13.1",
     "react-moment": "^0.7.4",
-    "react-scripts": "1.1.4",
+    "react-scripts": "^3.4.3",
     "react-split-pane": "^0.1.77",
     "react-time-range-picker": "^1.4.0",
     "react-tiny-virtual-list": "^2.1.4",
@@ -27,17 +25,27 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "babel src/ -d lib/",
+    "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "prepublish": "npm run build",
-    "flow": "flow"
+    "prettier": "prettier --write ."
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-preset-flow": "^6.23.0",
-    "prettier": "1.13.5",
-    "babel-preset-react": "^6.24.1",
-    "babel-plugin-transform-class-properties": "^6.24.1"
+    "@types/react": "^16.9.49",
+    "@types/react-dom": "^16.9.8",
+    "prettier": "^2.1.1",
+    "typescript": "^4.0.2"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
