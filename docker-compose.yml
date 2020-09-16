@@ -1,6 +1,5 @@
 version: "3.2"
 services:
-
   mongo:
     image: mongo:4
     networks:
@@ -18,7 +17,7 @@ services:
       - mongo
     networks:
       - internal
-    command: "yarn start"
+    command: "yarn prod"
     environment:
       REACT_APP_FLOWER_MONGO: mongo
       REACT_APP_FLAG_REGEX: "FLG[0-9a-f]{29}"

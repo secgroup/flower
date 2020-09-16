@@ -1,14 +1,14 @@
 # Services
 
-
-
 ### General idea
+
 We create pcap of N minutes on the virtual machine. We somehow download them, and use the `importer.py` script to analyze and import them into mongodb. The webapp does rest request to the webservices, that does query to mongodb.
 
-
 ### MongoDB structure
+
 We use a single collection for all the pcaps
 Each document will have:
+
 ```{
         "inx": //progressive flow index inside pcap
         "time": //start timestamp
@@ -25,7 +25,7 @@ Each document will have:
                 "hex": //original data encoded in hex
                 "from": "c" // "c" for client, "s" for server
                 "time": //timestamp
-            }, 
+            },
             ...
         ],
 
@@ -34,10 +34,13 @@ Each document will have:
 ```
 
 # Services description
+
 All the end-points return an object or an array of objects.
 
 ##### POST /query
+
 Accept the following payload
+
 ```
     {
        flow.data: "regex on data field of flow",
@@ -48,22 +51,29 @@ Accept the following payload
     }
 
 ```
+
 It returns an array of documents, WITHOUT the "flow" field
 
 ##### GET /services
+
 Returns informations about all services. It is configurable on `configurations.py`
 
 ##### GET /flow/(flow_id)
+
 Returns the all document with `flow_id` id, including the field `flow`
 
 ##### GET /star/(flow_id)/(0,1)
+
 Set the flow favourite (1) or not (0)
 
 ##### POST /starred
+
 Returns a list of document like `/query` endpoint, but only with starred items.
 
 ##### POST /to_python_request/(tokenize)
+
 convert the request to python syntax. Tokenize is used to toggle the auto-parsing of args.
 
 ##### GET /to_pwn/(id)
+
 Convert the flow with the specified id in pwntools syntax
